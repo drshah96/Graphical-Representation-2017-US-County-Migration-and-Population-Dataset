@@ -4,6 +4,8 @@ library("readxl")
 library("pacman")
 library("dplyr")
 library("ggplot2")
+install.packages("ggpubr")
+library("ggpubr")
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(pacman, party, rio, tidyverse)
 
@@ -32,9 +34,8 @@ States_MigrationRate <- States_MigrationRate_raw %>%
 names(States_MigrationRate) <- c("States","Frequency")
 States_MigrationRate
 
-hist(States_MigrationRate$Frequency, freq = T, ylim = c(0,300), xlim, breaks = States_MigrationRate$Frequency)
-
 suppressPackageStartupMessages(library(dplyr))
+
 #sum(States_MigrationRate$`International Migration Rate`)
 
 States_MigrationRate <- States_MigrationRate %>%
@@ -44,7 +45,10 @@ States_MigrationRate <- States_MigrationRate %>%
         cum_freq = cumsum(freq)
     )
 States_MigrationRate
-tail(States_MigrationRate$States)
+tail(States_MigrationRate)
 
+ggplot(data= States_MigrationRate, mapping = aes(x=States_MigrationRate$cum_freq,  color=States_MigrationRate$States)) +
+   geom_histogram(fill="white")
+  #  geom_col(aes(color=States_MigrationRate$States))                  
 hist(States_MigrationRate$States)
 hist(d$cum_freq)
