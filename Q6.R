@@ -41,3 +41,4 @@ ggplot(MigrationRate, aes(x=MigrationRate$Intl_Frequency, y=MigrationRate$Dom_Fr
               hjust=1.5, vjust = 0,
               check_overlap = TRUE) + 
     geom_smooth(method=lm)
+
