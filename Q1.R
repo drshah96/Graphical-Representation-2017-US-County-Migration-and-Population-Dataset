@@ -16,13 +16,13 @@ States_Population_2017 <- States_Population_2017_raw[order(-States_Population_20
 States_Population_2017
 
 States_Population_2017 <- States_Population_2017[1:20,]
-States_Population_2017
+States_Population_2017$`2017 Population`<- (States_Population_2017$`2017 Population`)/1000000
 
 suppressPackageStartupMessages(library(dplyr))
 
 d <- arrange(States_Population_2017, desc(`2017 Population`)) %>%
     mutate(
-        cumsum = cumsum(States_Population_2017$`2017 Population`),
+        cumsum = round(cumsum(States_Population_2017$`2017 Population`),3),
         freq = round(States_Population_2017$`2017 Population` / sum(States_Population_2017$`2017 Population`), 3),
         cum_freq = cumsum(freq)
     )
@@ -96,6 +96,10 @@ States_Population_2017_raw <- as.data.frame(States_Population_2017_raw)
 
 States_Population_2017 <- States_Population_2017_raw[order(-States_Population_2017_raw$`2017 Population`),]
 States_Population_2017
+
+States_Population_2017 <- States_Population_2017 %>%
+    group_by(State) %>%
+    summarize(m3 = max(`2017 Population`))
 
 States_Population_2017 <- States_Population_2017[1:20,]
 States_Population_2017
