@@ -26,8 +26,7 @@ County_MigrationRate
 #boxplot(County_MigrationRate$frequency)
 
 p <- ggplot(County_MigrationRate, aes(x=0, y=County_MigrationRate$frequency),
-            xlab = "",
-            ylab = "Migration Rate") + 
+            labs(x = "", y = "Frequency")) + 
     geom_boxplot() +
     ggtitle("County International Migration Rate Boxplot")
 
