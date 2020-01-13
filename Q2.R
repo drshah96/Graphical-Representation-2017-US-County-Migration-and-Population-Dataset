@@ -4,7 +4,7 @@ library("readxl")
 library("pacman")
 library("dplyr")
 library("ggplot2")
-install.packages("ggpubr")
+#install.packages("ggpubr")
 library("ggpubr")
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(pacman, party, rio, tidyverse)
@@ -52,3 +52,4 @@ ggplot(data= States_MigrationRate, mapping = aes(x=States_MigrationRate$cum_freq
   #  geom_col(aes(color=States_MigrationRate$States))                  
 hist(States_MigrationRate$States)
 hist(d$cum_freq)
+
