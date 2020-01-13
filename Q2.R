@@ -30,7 +30,8 @@ States_MigrationRate_raw <- as.data.frame(States_MigrationRate_raw)
 
 States_MigrationRate <- States_MigrationRate_raw %>%
     group_by(State) %>%
-    summarize(m3 = sum(`International Migration Rate`))
+    summarize(Frequency = sum(`International Migration Rate`))
+
 names(States_MigrationRate) <- c("States","Frequency")
 States_MigrationRate
 
@@ -47,11 +48,12 @@ States_MigrationRate <- States_MigrationRate %>%
 States_MigrationRate
 tail(States_MigrationRate)
 
-hist(States_MigrationRate$Frequency, breaks = 50)
-ggplot(data= States_MigrationRate, mapping = aes(x=States_MigrationRate$cum_freq,  color=States_MigrationRate$States)) +
-   geom_histogram(fill="white")
+#ggplot(data = States_MigrationRate, mapping = aes(x=States_MigrationRate$cum_freq,  color=States_MigrationRate$States)) +
+#   geom_histogram(fill="white") +
+#    xlab("States Cumulative Frequency") +
+
   #  geom_col(aes(color=States_MigrationRate$States))                  
 
-
-hist(d$cum_freq)
+hist(States_MigrationRate$Frequency,breaks = 50, main = "Migration Rate Frequency Histogram", xlab = "State Frequency", col = "#515585")
+hist(States_MigrationRate$cum_freq,breaks = 50, main = "Migration Rate Cumulative Frequency Histogram", xlab = "State Cumulative Frequency", col = "#0F4C75")
 

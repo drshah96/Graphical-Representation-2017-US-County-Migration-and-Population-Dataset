@@ -48,18 +48,11 @@ States_details
 
 States_details$Density <- States_details$Population / States_details$`Area sq. km`
 
-# Basic line plot with points
-ggplot(data=States_details, aes(x=States_details$Abbreviation , y=States_details$Density, group=1)) +
-    geom_line()+
-    geom_point()
-# Change the line type
-ggplot(data=States_details, aes(x=States_details$Abbreviation, y=States_details$Density, group=1)) +
-    geom_line(linetype = "dashed")+
-    geom_point()
-# Change the color
+
 ggplot(data=States_details, aes(x=States_details$Abbreviation, y=States_details$Density, group=1)) +
     geom_line(color="#236B8E",size = 1.5)+
     ggtitle("Population Density per Sq. KM") +
+    xlab("States") + ylab("Population Density") +
     geom_point() +
     geom_text(label=round(States_details$Density,2), 
               hjust=0.3, vjust = -1,

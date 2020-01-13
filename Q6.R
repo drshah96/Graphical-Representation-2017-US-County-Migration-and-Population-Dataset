@@ -40,5 +40,7 @@ ggplot(MigrationRate, aes(x=MigrationRate$Intl_Frequency, y=MigrationRate$Dom_Fr
     geom_text(label=MigrationRate$State, 
               hjust=1.5, vjust = 0,
               check_overlap = TRUE) + 
+    ggtitle("International vs Domestic States MigrationRate") +
+    xlab("International Migration Rate") + ylab("Domestic Migration Rate") +
     geom_smooth(method=lm)
 

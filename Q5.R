@@ -8,6 +8,10 @@ library("ggplot2")
 library("ggpubr")
 #install.packages("plotly")
 library(plotly)
+install.packages("ggthemes")
+library(ggthemes)
+library(grid)
+
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(pacman, party, rio, tidyverse)
 
@@ -25,10 +29,11 @@ County_MigrationRate
 
 #boxplot(County_MigrationRate$frequency)
 
-p <- ggplot(County_MigrationRate, aes(x=0, y=County_MigrationRate$frequency),
-            labs(x = "", y = "Frequency")) + 
+p <- ggplot(County_MigrationRate, aes(x=0, y=County_MigrationRate$frequency))  +
+     ylab("Migration Rate Frequency") +
     geom_boxplot() +
     ggtitle("County International Migration Rate Boxplot")
 
 p <- ggplotly(p)
 p
+
