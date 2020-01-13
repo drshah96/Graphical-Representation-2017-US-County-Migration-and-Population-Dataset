@@ -23,7 +23,7 @@ County_MigrationRate <- County_MigrationRate_raw %>%
 County_MigrationRate
 #summary(County_MigrationRate)
 
-boxplot(County_MigrationRate$frequency)
+#boxplot(County_MigrationRate$frequency)
 
 p <- ggplot(County_MigrationRate, aes(x=0, y=County_MigrationRate$frequency),
             xlab = "",
