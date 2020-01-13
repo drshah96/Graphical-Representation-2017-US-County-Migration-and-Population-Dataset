@@ -47,9 +47,11 @@ States_MigrationRate <- States_MigrationRate %>%
 States_MigrationRate
 tail(States_MigrationRate)
 
+hist(States_MigrationRate$Frequency, breaks = 50)
 ggplot(data= States_MigrationRate, mapping = aes(x=States_MigrationRate$cum_freq,  color=States_MigrationRate$States)) +
    geom_histogram(fill="white")
   #  geom_col(aes(color=States_MigrationRate$States))                  
-hist(States_MigrationRate$States)
+
+
 hist(d$cum_freq)
 
