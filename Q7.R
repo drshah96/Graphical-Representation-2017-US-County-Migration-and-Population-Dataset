@@ -47,7 +47,7 @@ States_details$area <- NULL
 States_details
 
 States_details$Density <- States_details$Population / States_details$`Area sq. km`
-
+States_details
 
 ggplot(data=States_details, aes(x=States_details$Abbreviation, y=States_details$Density, group=1)) +
     geom_line(color="#236B8E",size = 1.5)+
